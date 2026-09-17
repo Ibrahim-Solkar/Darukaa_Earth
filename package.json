@@ -1,0 +1,19 @@
+{
+  "name": "darukaa-earth",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "format": "prettier --write \"frontend/src/**/*.{ts,tsx,css,json}\"",
+    "format:check": "prettier --check \"frontend/src/**/*.{ts,tsx,css,json}\""
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{ts,tsx,css,json}": "prettier --write"
+  }
+}
