@@ -4,11 +4,15 @@ from app.core.config import settings
 from app.api import auth, projects, sites, analytics
 
 app = FastAPI(title=settings.PROJECT_NAME, version="1.0.0")
-
+origins = [
+    origin.strip()
+    for origin in settings.CORS_ORIGINS.split(",")
+    if origin.strip()
+]
 # Configure CORS for React Frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"], # Vite default ports
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
